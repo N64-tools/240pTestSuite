@@ -187,8 +187,9 @@ void WaitVsync()
         display_show_force(__dc);
     }
     else
+	{
         display_show(__dc);
-}
+	}
 }
 
 void GetVideoModeStr(char *res, int shortdesc)
