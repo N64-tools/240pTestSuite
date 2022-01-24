@@ -168,14 +168,27 @@ int isNTSC() //TODO: this still seems to be insufficent for MPAL consoles
 
 void WaitVsync()
 {
-	int nextframe;
+// 	int nextframe;
 	
-#ifdef DEBUG_BENCHMARK
-	Draw_counter(10, 10, end_counter());
-#endif
-	nextframe = __frames + 1;
-	display_show(__dc);
-	while (nextframe > __frames) ;
+// #ifdef DEBUG_BENCHMARK
+// 	Draw_counter(10, 10, end_counter());
+// #endif
+// 	nextframe = __frames + 1;
+// 	display_show(__dc);
+// 	while (nextframe > __frames) ;
+
+    /* If the interrupts are disabled, the console wouldn't show to the screen.
+     * Since the console is only used for development and emergency context,
+     * it is better to force display irrespective of vblank. */
+    uint32_t c0_status = C0_STATUS();
+    if ((c0_status & C0_STATUS_IE) == 0 || ((c0_status & (C0_STATUS_EXL|C0_STATUS_ERL)) != 0))
+    {
+        extern void display_show_force(int __dc);
+        display_show_force(__dc);
+    }
+    else
+        display_show(__dc);
+}
 }
 
 void GetVideoModeStr(char *res, int shortdesc)

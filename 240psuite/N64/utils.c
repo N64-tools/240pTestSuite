@@ -25,19 +25,15 @@ int fh = 8; // font height
 
 void init_n64()
 {
-	// //init_interrupts(); deprecated!
-	// init_video();
-	// set_video();
 	// console_init();
-	// dfs_init(DFS_DEFAULT_LOCATION);
-	// controller_init();
 	// timer_init();
 	/* Initialize peripherals */
 	debug_init_usblog();
 	debug_init_isviewer();
 	controller_init();
-	display_init(RESOLUTION_512x240, DEPTH_16_BPP, 3, GAMMA_NONE, ANTIALIAS_RESAMPLE);
-
+	init_video();
+	set_video();
+	timer_init();
 	int ret = dfs_init(DFS_DEFAULT_LOCATION);
 	assert(ret == DFS_ESUCCESS);
 }
