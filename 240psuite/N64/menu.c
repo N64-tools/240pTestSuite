@@ -483,15 +483,15 @@ void ShowOptions(int usebuffer)
 				sprintf(str, "OFF");
 				break;
 			case ANTIALIAS_RESAMPLE:
-			case ANTIALIAS_RESAMPLE_NODIVOT:
+			//case ANTIALIAS_RESAMPLE_NODIVOT:
 				sprintf(str, "Resample");
 				break;
 			case ANTIALIAS_RESAMPLE_FETCH_NEEDED:
-			case ANTIALIAS_RESAMPLE_FETCH_NEEDED_NODIVOT:
+			//case ANTIALIAS_RESAMPLE_FETCH_NEEDED_NODIVOT:
 				sprintf(str, "Fetch Needed");
 				break;
 			case ANTIALIAS_RESAMPLE_FETCH_ALWAYS:
-			case ANTIALIAS_RESAMPLE_FETCH_ALWAYS_NODIVOT:
+			//case ANTIALIAS_RESAMPLE_FETCH_ALWAYS_NODIVOT:
 				sprintf(str, "Fetch Always");
 				break;
 			default:
@@ -569,30 +569,30 @@ void ShowOptions(int usebuffer)
 					break;
 				case 3:
 					o_EnableDivot = !o_EnableDivot;
-					if(o_EnableDivot)
-					{
-						if(o_current_antialias >= ANTIALIAS_RESAMPLE_NODIVOT)
-							o_current_antialias -= 3;
-					}
-					else
-					{
-						if(o_current_antialias < ANTIALIAS_RESAMPLE_NODIVOT)
-							o_current_antialias += 3;
-					}
+					// if(o_EnableDivot)
+					// {
+					// 	if(o_current_antialias >= ANTIALIAS_RESAMPLE_NODIVOT)
+					// 		o_current_antialias -= 3;
+					// }
+					// else
+					// {
+					// 	if(o_current_antialias < ANTIALIAS_RESAMPLE_NODIVOT)
+					// 		o_current_antialias += 3;
+					// }
 					break;
 				case 4:
-					if(o_EnableDivot)
-					{
-						o_current_antialias++;
-						if(o_current_antialias > ANTIALIAS_RESAMPLE_FETCH_ALWAYS)
-							o_current_antialias = ANTIALIAS_RESAMPLE;
-					}
-					else
-					{
-						o_current_antialias++;
-						if(o_current_antialias > ANTIALIAS_RESAMPLE_FETCH_ALWAYS_NODIVOT)
-							o_current_antialias = ANTIALIAS_RESAMPLE_NODIVOT;
-					}
+					// if(o_EnableDivot)
+					// {
+					// 	o_current_antialias++;
+					// 	if(o_current_antialias > ANTIALIAS_RESAMPLE_FETCH_ALWAYS)
+					// 		o_current_antialias = ANTIALIAS_RESAMPLE;
+					// }
+					// else
+					// {
+					// 	o_current_antialias++;
+					// 	if(o_current_antialias > ANTIALIAS_RESAMPLE_FETCH_ALWAYS_NODIVOT)
+					// 		o_current_antialias = ANTIALIAS_RESAMPLE_NODIVOT;
+					// }
 					break;
 				case 5:						
 					o_EnableDither = !o_EnableDither;
