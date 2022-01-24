@@ -28,6 +28,7 @@ void init_n64()
 	//init_interrupts(); deprecated!
 	init_video();
 	set_video();
+	console_init();
 	dfs_init(DFS_DEFAULT_LOCATION);
 	controller_init();
 	timer_init();
