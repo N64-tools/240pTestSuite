@@ -598,9 +598,9 @@ void ShowOptions(int usebuffer)
 					o_EnableDither = !o_EnableDither;
 					if(o_current_bitdepth != DEPTH_32_BPP)
 					{
-						if(o_EnableDither)
-							o_current_bitdepth = DEPTH_16_BPP_DITHER;
-						else
+						// if(o_EnableDither)
+						// 	o_current_bitdepth = DEPTH_16_BPP_DITHER;
+						// else
 							o_current_bitdepth = DEPTH_16_BPP;
 					}
 					break;
