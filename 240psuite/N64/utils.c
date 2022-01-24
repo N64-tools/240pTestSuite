@@ -25,13 +25,21 @@ int fh = 8; // font height
 
 void init_n64()
 {
-	//init_interrupts(); deprecated!
-	init_video();
-	set_video();
-	console_init();
-	dfs_init(DFS_DEFAULT_LOCATION);
-	controller_init();
-	timer_init();
+	// //init_interrupts(); deprecated!
+	// init_video();
+	// set_video();
+	// console_init();
+	// dfs_init(DFS_DEFAULT_LOCATION);
+	// controller_init();
+	// timer_init();
+	/* Initialize peripherals */
+    display_init( RESOLUTION_320x240, DEPTH_32_BPP, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE );
+    console_init();
+    controller_init();
+    timer_init();
+    //rtc_init();
+
+    console_set_render_mode(RENDER_MANUAL);
 }
 
 void DrawString(int x, int y, int r, int g, int b, char *str)
