@@ -33,13 +33,13 @@ void init_n64()
 	// controller_init();
 	// timer_init();
 	/* Initialize peripherals */
-    display_init( RESOLUTION_320x240, DEPTH_32_BPP, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE );
-    console_init();
-    controller_init();
-    timer_init();
-    //rtc_init();
+	debug_init_usblog();
+	debug_init_isviewer();
+	controller_init();
+	display_init(RESOLUTION_512x240, DEPTH_16_BPP, 3, GAMMA_NONE, ANTIALIAS_RESAMPLE);
 
-    console_set_render_mode(RENDER_MANUAL);
+	int ret = dfs_init(DFS_DEFAULT_LOCATION);
+	assert(ret == DFS_ESUCCESS);
 }
 
 void DrawString(int x, int y, int r, int g, int b, char *str)
